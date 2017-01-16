@@ -1,0 +1,22 @@
+@extends('layouts.app')
+
+@section('content')
+    <h1>%%modelName%% {{ $%%crudNameSingular%%->%%primaryKey%% }}</h1>
+
+    <a href="{{ url('/%%routeGroup%%%%viewName%%/' . $%%crudNameSingular%%->%%primaryKey%% . '/edit') }}" title="Edit %%modelName%%">Edit %%modelName%%</a>
+    <form action="{{ url('/%%routeGroup%%%%crudName%%/' . $%%crudNameSingular%%->%%primaryKey%%) }}" method="post">
+        {{ method_field('delete') }}
+        {{ csrf_field() }}
+        <button type="submit" title="Delete %%modelName%%" onclick="return confirm('Confirm delete?')">Delete %%modelName%%</button>
+    </form>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>ID</th>
+            <td>{{ $%%crudNameSingular%%->%%primaryKey%% }}</td>
+        </tr>
+        %%formBodyHtmlForShowView%%
+        </tbody>
+    </table>
+@endsection

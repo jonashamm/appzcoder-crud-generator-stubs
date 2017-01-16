@@ -1,0 +1,3 @@
+%%formFieldsHtml%%
+
+<button type="submit">{{isset($submitButtonText) ? $submitButtonText : 'Create'}}</button>

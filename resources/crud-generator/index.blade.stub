@@ -1,0 +1,38 @@
+@extends('layouts.app')
+
+@section('content')
+
+    <h1>%%crudNameCap%%</h1>
+
+    <a href="{{ url('/%%routeGroup%%%%viewName%%/create') }}" title="Add New %%modelName%%">Add New %%modelName%%</a>
+    <br/>
+
+    <table >
+        <thead>
+        <tr>
+            <th>ID</th>
+            %%formHeadingHtml%%
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($%%crudName%% as $item)
+            <tr>
+                <td>{{ $item->id }}</td>
+                %%formBodyHtml%%
+                <td>
+                    <a href="{{ url('/%%routeGroup%%%%viewName%%/' . $item->%%primaryKey%%) }}" title="View %%modelName%%">View %%modelName%%</a>
+                    <a href="{{ url('/%%routeGroup%%%%viewName%%/' . $item->%%primaryKey%% . '/edit') }}" title="Edit %%modelName%%">Edit %%modelName%%</a>
+                    <form action="{{ url('/%%routeGroup%%%%viewName%%/' . $item->%%primaryKey%%) }}" method="post">
+                        {{ method_field('delete') }}
+                        {{ csrf_field() }}
+                        <button type="submit" title="Delete %%modelName%%" onclick="return confirm('Confirm delete?')">Delete %%modelName%%</button>
+                    </form>
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+    <div class="pagination-wrapper"> {!! $%%crudName%%->render() !!} </div>
+
+@endsection

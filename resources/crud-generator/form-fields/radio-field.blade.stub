@@ -1,0 +1,10 @@
+<div class="checkbox">
+    <label>
+        <input type="radio" name="%1$s" value="1"> Yes
+    </label>
+</div>
+<div class="checkbox">
+    <label>
+        <input type="radio" name="%1$s" value="0" checked> No
+    </label>
+</div>
