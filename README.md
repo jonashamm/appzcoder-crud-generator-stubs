@@ -29,6 +29,20 @@
 	```
 	  'custom_template' => true,	
 	```
-7. Restart your local dev server (stop running server and type **php artisan serve**  in the terminal)
+	
+7. In **vendor/appzcoder/crud-generator/src/Commands/CrudViewCommand.php** change this line:
+	```
+	$labelText = "'" . ucwords(strtolower(str_replace('_', ' ', $item['name']))) . "'";
+	```
+	to 
+	```
+	$labelText = ucwords(strtolower(str_replace('_', ' ', $item['name'])));
+	```
+	
+8. Again in **vendor/appzcoder/crud-generator/src/Commands/CrudViewCommand.php** add the following line to the function templateFormVars:
+	```
+	File::put($newFormFile, str_replace('%%crudNameSingular%%', $this->crudNameSingular, File::get($newFormFile)));
+	```
+9. Restart your local dev server (stop running server and type **php artisan serve**  in the terminal)
 
-8. For more documentation and how to use, visit: https://github.com/appzcoder/crud-generator
+10. For more documentation and how to use, visit: https://github.com/appzcoder/crud-generator

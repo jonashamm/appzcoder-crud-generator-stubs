@@ -1,1 +1,1 @@
-<input type="%%fieldType%%" name="%%itemName%%"%%required%%>
+<input type="%%fieldType%%" name="%%itemName%%" value="{{ old('%%itemName%%', $%%crudNameSingular%%->%%itemName%% ?? null) }}"%%required%%>
