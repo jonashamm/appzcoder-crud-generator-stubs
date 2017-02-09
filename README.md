@@ -30,6 +30,8 @@
 	  'custom_template' => true,	
 	```
 	
+**Steps 7 and 8 are not a good practice, but I had no success so far in overwriting package functions the "right" way:**
+	
 7. In **vendor/appzcoder/crud-generator/src/Commands/CrudViewCommand.php** change this line:
 	```
 	$labelText = "'" . ucwords(strtolower(str_replace('_', ' ', $item['name']))) . "'";
